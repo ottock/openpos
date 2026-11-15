@@ -1,14 +1,13 @@
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 
+from core.log import log
 from core.config import Config
 from presentation.api.base import app
-from core.log.base import setup_logger
 from repository.postgres.base import PostgresClient
 
 
 def main():
-    log = setup_logger()
     try:
         config = Config()
         log.info("Starting backend application")
